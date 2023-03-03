@@ -1,0 +1,51 @@
+# More information about the configuration file can be found here:
+# https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-config.html
+version = 0.1
+
+[default]
+[default.global]
+[default.global.parameters]
+stack_name = "my-sam-api"
+
+[default.build]
+[default.build.parameters]
+cached = true
+parallel = true
+
+[default.deploy]
+[default.deploy.parameters]
+capabilities = "CAPABILITY_IAM"
+confirm_changeset = true
+resolve_s3 = true
+s3_bucket = "aws-sam-cli-managed-default-samclisourcebucket-1eq8rqcemtg3c"
+s3_prefix = "my-sam-api"
+region = "ap-southeast-2"
+image_repositories = []
+
+[default.package]
+[default.package.parameters]
+resolve_s3 = true
+
+[default.sync]
+[default.sync.parameters]
+watch = true
+
+[default.local_start_api]
+[default.local_start_api.parameters]
+warm_containers = "EAGER"
+
+[default.local_start_lambda]
+[default.local_start_lambda.parameters]
+warm_containers = "EAGER"
+
+[pipeline]
+[pipeline.deploy]
+[pipeline.deploy.parameters]
+stack_name = "sam-ruby-api-pipeline"
+s3_bucket = "aws-sam-cli-managed-default-samclisourcebucket-1eq8rqcemtg3c"
+s3_prefix = "sam-ruby-api-pipeline"
+region = "ap-southeast-2"
+confirm_changeset = true
+capabilities = "CAPABILITY_IAM"
+parameter_overrides = "GitProviderType=\"GitHub\" FullRepositoryId=\"tonyjoblin/sam-ruby-api\" MainGitBranch=\"master\" SamTemplate=\"template.yaml\" TestingRegion=\"ap-southeast-2\" TestingStackName=\"sam-ruby-api-dev\" TestingPipelineExecutionRole=\"arn:aws:iam::792783462417:role/aws-sam-cli-managed-dev-pipe-PipelineExecutionRole-PYNXYKTAQQHW\" TestingCloudFormationExecutionRole=\"arn:aws:iam::792783462417:role/aws-sam-cli-managed-dev-p-CloudFormationExecutionR-PCJYD52F69W0\" TestingArtifactBucket=\"aws-sam-cli-managed-default-samclisourcebucket-1eq8rqcemtg3c/my-sam-api/\" TestingImageRepository=\"\" ProdRegion=\"ap-southeast-2\" ProdStackName=\"sam-ruby-api-prod\" ProdPipelineExecutionRole=\"arn:aws:iam::792783462417:role/aws-sam-cli-managed-dev-pipe-PipelineExecutionRole-PYNXYKTAQQHW\" ProdCloudFormationExecutionExeRole=\"arn:aws:iam::792783462417:role/aws-sam-cli-managed-dev-p-CloudFormationExecutionR-PCJYD52F69W0\" ProdArtifactBucket=\"aws-sam-cli-managed-default-samclisourcebucket-1eq8rqcemtg3c/my-sam-api/\" ProdImageRepository=\"\" CodeStarConnectionArn=\"arn:aws:codestar-connections:ap-southeast-2:792783462417:connection/c457d98f-b695-46f6-b95c-4dfa01e7daca\" FeatureGitBranch=\"\""
+image_repositories = []
